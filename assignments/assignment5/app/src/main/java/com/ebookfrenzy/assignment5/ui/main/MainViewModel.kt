@@ -6,21 +6,25 @@ import androidx.lifecycle.MutableLiveData
 class MainViewModel : ViewModel() {
 
     var newName: MutableLiveData<String> = MutableLiveData()
-    //var nameList = MutableLiveData<MutableList<String>>()
-    var nameList: ArrayList<String> = ArrayList()
-    fun displayName() {
+    var nameList: MutableList<String> = mutableListOf()
+    //1) var nameList: ArrayList<String> = ArrayList()
+    //2) val liveList:
+    fun displayName(): String {
         newName.let {
             if(it.value != ""){
-
                 nameList.add(it.toString())
-               // nameList.value?.add(it.toString())
+                //1) nameList.add(it.toString())
+                //1) nameList.joinToString(prefix = "", separator = "\n", postfix = "")
+                //2) nameList.observe(this) {list -> showList(list)}
 
-               // println(nameList)
+                // println(nameList)
             } else {
                 nameList.add("No Names to display")
-               // println("No Names to display")
+                // println(nameList)
             }
         }
+        return nameList.toString()
+        //return nameList.joinToString(prefix = "", separator = "\n", postfix = "")
     }
 
 }
