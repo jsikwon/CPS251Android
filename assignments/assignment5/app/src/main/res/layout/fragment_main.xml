@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:text='@string/emptyText'
+        android:text='@{(myViewModel.nameList.isEmpty()) ? "No Names to display" : String.valueOf(myViewModel.nameList)}'
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
